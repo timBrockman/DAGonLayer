@@ -3,7 +3,7 @@ import tomllib
 
 
 def test_project_dependencies_are_pep508_array() -> None:
-    pyproject = Path(__file__).with_name("pyproject.toml")
+    pyproject = Path(__file__).resolve().parent / "pyproject.toml"
     data = tomllib.loads(pyproject.read_text(encoding="utf-8"))
 
     dependencies = data["project"]["dependencies"]
