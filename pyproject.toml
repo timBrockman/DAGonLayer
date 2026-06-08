@@ -23,8 +23,8 @@ dependencies = [
 ]
 
 urls=[
-  "Homepage=https://github.com/timBrockman/dagonlayer",
-  "Repository=https://github.com/timBrockman/dagonlayer"
+  {"Homepage":"https://github.com/timBrockman/dagonlayer"},
+  {"Repository":"https://github.com/timBrockman/dagonlayer"}
 ]
 optional-dependencies=[
   {test = [
