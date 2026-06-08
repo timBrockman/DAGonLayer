@@ -1,5 +1,5 @@
 # Stateguard | A Configuration-Driven, Deterministic, Multi-Agent Engine
-## 📂 Lightweight Data-Driven Multi-Agent Framework
+## 📂 Lightweight Data-Driven Multi-Agent Orchestrator
 
 A minimalist, high-performance, prototype Python framework for orchestrating specialized multi-agent workflows. By pairing a Strict Configuration-Driven Scheduler with an immutable Unified Provenance Graph, this architecture eliminates conversational prompt drift, slashes token overhead, and provides a reliable execution audit trail.
 
