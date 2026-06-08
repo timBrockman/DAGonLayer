@@ -1,4 +1,4 @@
-# Stateguard | A Configuration-Driven, Deterministic, Multi-Agent Engine
+# DAGonLayer | A Configuration-Driven, Deterministic, Multi-Agent Engine
 ## 📂 Lightweight Data-Driven Multi-Agent Orchestrator
 
 A minimalist, high-performance, prototype Python framework for orchestrating specialized multi-agent workflows. By pairing a Strict Configuration-Driven Scheduler with an immutable Unified Provenance Graph, this architecture eliminates conversational prompt drift, slashes token overhead, and provides a reliable execution audit trail.
@@ -26,6 +26,25 @@ pip install -r requirements.txt
 python main.py
 ```
 
+### 2.1 Package Installation
+Install the package locally for importable reuse and CLI execution:
+
+```bash
+pip install -e .
+python -m dagonlayer
+```
+
+### 2.2 Environment Configuration
+Use environment variables to configure model selection, logging, tracing, and workflow file path.
+
+```bash
+export WORKFLOW_FILE=workflow.yml
+export MODEL_ID=openai:gpt-4
+export ENABLE_LOGGING=true
+export ENABLE_TRACING=true
+python -m dagonlayer
+```
+
 ### 3. How the Engine Works
 * `config.py` loads the workflow definition from YAML.
 * `orchestrator.py` evaluates states, executes agents, validates outputs, and routes workflow transitions.
@@ -47,9 +66,9 @@ This grid reflects our engineering choices to maintain maximum isolation, token 
 ------------------------------
 ## 🗺️ Future Roadmap Suggestions
 ### 📦 Phase 0: Package and Stabilize the Refactor
-* Create a package entrypoint around `main.py` and expose the orchestrator as a reusable module.
-* Add environment configuration for model selection, API keys, and runtime options.
-* Verify the new file-level design with stronger tests and clear module contracts.
+- [x] Create a package entrypoint around `main.py` and expose the orchestrator as a reusable module.
+- [x] Add environment configuration for model selection, API keys, and runtime options.
+- [x] Verify the new file-level design with stronger tests and clear module contracts.
 
 ### 📈 Phase 1: Real Pydantic AI and Production Integration
 * Replace mocked agent implementations in `agents.py` with real `pydantic_ai` agent instances.

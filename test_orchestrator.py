@@ -5,10 +5,10 @@ Unit tests for the orchestrator and components.
 import asyncio
 import pytest
 
-from config import WorkflowConfig
-from agents import PydanticAIRegistry
-from orchestrator import DistributedHybridOrchestrator
-from observability import WorkflowObserver
+from dagonlayer.config import WorkflowConfig
+from dagonlayer.agents import PydanticAIRegistry
+from dagonlayer.orchestrator import DistributedHybridOrchestrator
+from dagonlayer.observability import WorkflowObserver
 
 
 @pytest.fixture
