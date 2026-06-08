@@ -5,38 +5,37 @@ description = "A configuration-driven, deterministic, multi-agent orchestration 
 readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
-authors = [
-  { name = "timBrockman" }
-]
-classifiers = [
-  "Programming Language :: Python :: 3.11",
-  "License :: OSI Approved :: MIT License",
-  "Operating System :: OS Independent"
+authors = [ { name = "timBrockman" } ]
+classifiers = [ 
+    "Programming Language :: Python :: 3.11", 
+    "License :: OSI Approved :: MIT License", 
+    "Operating System :: OS Independent" 
 ]
 keywords = ["workflow", "orchestration", "multi-agent", "pydantic", "llm"]
-dependencies = [
-  "python-dotenv>=1.0.0",
-  "pyyaml>=6.0",
-  "pydantic>=2.0",
-  "pydantic-ai>=0.1.0",
-  "openai>=1.0.0"
+
+dependencies = [ 
+    "python-dotenv>=1.0.0", 
+    "pyyaml>=6.0", 
+    "pydantic>=2.0", 
+    "pydantic-ai>=0.1.0", 
+    "openai>=1.0.0" 
 ]
 
-urls={
-  Homepage="https://github.com/timBrockman/dagonlayer",
-  Repository="https://github.com/timBrockman/dagonlayer"
-  }
+[project.urls]
+Homepage = "https://github.com/timBrockman/dagonlayer"
+Repository = "https://github.com/timBrockman/dagonlayer"
 
-optional-dependencies=[
-  {test = [
-    "pytest",
-    "pytest-asyncio"
-  ]}
+# Fixed: This must be a named table, not an array of inline tables
+[project.optional-dependencies]
+test = [ 
+    "pytest", 
+    "pytest-asyncio" 
 ]
-scripts=[
-  "dagonlayer=dagonlayer.main:run"
-]
+
+# Fixed: This must be a key-value table, not an array
+[project.scripts]
+dagonlayer = "dagonlayer.main:run"
+
 [build-system]
 requires = ["setuptools>=65.0.0", "wheel", "build"]
 build-backend = "setuptools.build_meta"
-
