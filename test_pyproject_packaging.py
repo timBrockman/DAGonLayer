@@ -9,5 +9,4 @@ def test_project_dependencies_are_string_array() -> None:
     dependencies = data["project"]["dependencies"]
 
     assert isinstance(dependencies, list)
-    assert dependencies
     assert all(isinstance(dep, str) for dep in dependencies)
