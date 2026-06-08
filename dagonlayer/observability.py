@@ -19,7 +19,7 @@ class WorkflowObserver:
     
     def _setup_logger(self) -> logging.Logger:
         """Setup structured logging."""
-        logger = logging.getLogger("stateguard")
+        logger = logging.getLogger("dagonlayer")
         
         # Avoid adding duplicate handlers
         if logger.handlers:

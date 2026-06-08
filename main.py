@@ -1,6 +1,6 @@
 import asyncio
 
-from stateguard.main import main as async_main
+from dagonlayer.main import main as async_main
 
 
 def run() -> int:

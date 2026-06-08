@@ -1,6 +1,6 @@
 # Modular Refactor: Pydantic AI Integration (Option 3)
 
-This branch implements a fully modular, production-ready version of stateguard with **Pydantic AI integration** while maintaining ownership of orchestration logic.
+This branch implements a fully modular, production-ready version of DAGonLayer with **Pydantic AI integration** while maintaining ownership of orchestration logic.
 
 ## Architecture Overview
 

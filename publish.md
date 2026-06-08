@@ -1,4 +1,4 @@
-# Publishing `stateguard` to PyPI
+# Publishing `DAGonLayer` to PyPI
 
 ## Prerequisites
 

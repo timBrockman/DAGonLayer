@@ -1,4 +1,4 @@
-"""Stateguard package exports."""
+"""DAGonLayer package exports."""
 
 from .agents import PydanticAIRegistry
 from .config import WorkflowConfig

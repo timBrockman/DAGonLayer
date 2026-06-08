@@ -20,7 +20,7 @@ class Settings:
     """Application settings loaded from environment variables."""
 
     WORKFLOW_FILE: str = os.getenv("WORKFLOW_FILE", "workflow.yml")
-    MODEL_ID: str = os.getenv("MODEL_ID", os.getenv("STATEGUARD_MODEL", "openai:gpt-4"))
+    MODEL_ID: str = os.getenv("MODEL_ID", os.getenv("DAGONLAYER_MODEL", os.getenv("STATEGUARD_MODEL", "openai:gpt-4")))
     OPENAI_API_KEY: Optional[str] = os.getenv("OPENAI_API_KEY")
     OPENAI_API_BASE: Optional[str] = os.getenv("OPENAI_API_BASE")
     ENABLE_LOGGING: bool = get_env_bool("ENABLE_LOGGING", True)
