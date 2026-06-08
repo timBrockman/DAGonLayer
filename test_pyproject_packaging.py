@@ -2,7 +2,7 @@ from pathlib import Path
 import tomllib
 
 
-def test_project_dependencies_are_pep508_array() -> None:
+def test_project_dependencies_are_string_array() -> None:
     pyproject = Path(__file__).resolve().parent / "pyproject.toml"
     data = tomllib.loads(pyproject.read_text(encoding="utf-8"))
 
