@@ -22,10 +22,11 @@ dependencies = [
   "openai>=1.0.0"
 ]
 
-urls=[
-  {Homepage="https://github.com/timBrockman/dagonlayer"},
-  {Repository="https://github.com/timBrockman/dagonlayer"}
-]
+urls={
+  Homepage="https://github.com/timBrockman/dagonlayer",
+  Repository="https://github.com/timBrockman/dagonlayer"
+  }
+
 optional-dependencies=[
   {test = [
     "pytest",
