@@ -15,12 +15,24 @@ A minimalist, high-performance, prototype Python framework for orchestrating spe
 
 ------------------------------
 ## 🛠️ Complete Usage Guide
-### 1. Define the Workflow Configuration (workflow.yml)
-The demo `workflow.yml` configuration models an advanced pipeline: it pulls context, enforces retry caps, handles data-driven branching criteria, and registers human intervention fallback loops.
+### 1. Define the Workflow Configuration (`workflow.yml`)
+The current `workflow.yml` is the declarative state machine for the engine. It defines state transitions, `context_mapping`, `agent` bindings, retry caps, routing rules, and terminal states.
 
-### 2. Implement the Core Runtime Engine (stateguard.py)
-Save the following code as stateguard.py. It reads the configuration file, maps context isolation, evaluates expressions, manages errors, and runs concurrently.
-- [ ] todo - create actual package
+### 2. Run the Entry Point (`main.py`)
+The refactor splits the runtime into focused modules and uses `main.py` as the bootstrapper.
+
+```bash
+pip install -r requirements.txt
+python main.py
+```
+
+### 3. How the Engine Works
+* `config.py` loads the workflow definition from YAML.
+* `orchestrator.py` evaluates states, executes agents, validates outputs, and routes workflow transitions.
+* `agents.py` contains the `PydanticAIRegistry` and mock agent implementations, with clear hooks for real Pydantic AI integration.
+* `schemas.py` defines strict output contracts and exposes `SCHEMA_REGISTRY` for runtime validation.
+* `provenance.py` captures an immutable audit trail for each workflow event.
+* `observability.py` instruments execution with logging and trace spans.
 
 ## 📊 Architectural Trade-off Matrix
 This grid reflects our engineering choices to maintain maximum isolation, token efficiency, and deterministic predictability versus mainstream multi-agent design alternatives.
@@ -34,17 +46,21 @@ This grid reflects our engineering choices to maintain maximum isolation, token 
 
 ------------------------------
 ## 🗺️ Future Roadmap Suggestions
-### 📦 Phase 0: Create package
-### 📈 Phase 1: High Availability & Persistence
+### 📦 Phase 0: Package and Stabilize the Refactor
+* Create a package entrypoint around `main.py` and expose the orchestrator as a reusable module.
+* Add environment configuration for model selection, API keys, and runtime options.
+* Verify the new file-level design with stronger tests and clear module contracts.
 
-* Distributed Persistent State Store (Redis/PostgreSQL): Swap out the in-memory array AsyncProvenanceGraph for an asynchronous DB driver interface. This allows long-running workflows to survive server restarts or crashes.
-* Webhook Event Broker Subscriptions: Expose endpoints where human-in-the-loop task notifications publish directly to communication tools (e.g., Slack, email, or a frontend dashboard) and sleep until webhooks post back data payloads.
+### 📈 Phase 1: Real Pydantic AI and Production Integration
+* Replace mocked agent implementations in `agents.py` with real `pydantic_ai` agent instances.
+* Add optional model configuration so the registry can target `openai:gpt-4`, `anthropic:claude-3`, or similar backends.
+* Extend observability to export traces to a production telemetry backend.
 
-### 🧠 Phase 2: Dynamic Lifecycle Compaction
-
-* Token Pruning Summarizer Workers: Implement a background cleanup routine that uses small, cost-efficient models to compress older historical events inside massive logs into atomic context sheets, maximizing prompt efficiency.
-* Semantic Token Router Routing Fallback: Introduce vector searches on the central configuration scheduler so that if a workflow enters an unknown state, tasks map to matching agents based on prompt embeddings instead of rigid configuration rules.
+### 🧠 Phase 2: Persistence and Human Workflow Support
+* Add an async persistent store for provenance events so long-running workflows survive restarts.
+* Build an actual human intervention queue and callback workflow for `HUMAN_INTERVENTION` state.
+* Add webhook/event broker integration so manual review requests can be sent and resumed from external systems.
 
 ------------------------------
 ## 🤝 Advancing the Architecture
-This project is a super early prototype designed to get some ideas out and into code.
+This project is a modular prototype built to move beyond a single-file proof of concept. The current refactor makes it easier to extend, validate, test, and eventually connect to real LLMs and production telemetry.
