@@ -6,7 +6,7 @@ Integrates real LLM calls with strict schema validation.
 import asyncio
 from typing import Optional, Dict, Any
 
-from schemas import ResearcherOutputSchema, WriterOutputSchema
+from .schemas import ResearcherOutputSchema, WriterOutputSchema
 
 
 class AgentContext:

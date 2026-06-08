@@ -6,11 +6,11 @@ Decoupled from schemas, agents, config, and observability.
 from typing import Dict, Any
 from pydantic import ValidationError
 
-from config import WorkflowConfig
-from agents import PydanticAIRegistry
-from provenance import AsyncProvenanceGraph
-from schemas import SCHEMA_REGISTRY
-from observability import WorkflowObserver
+from .config import WorkflowConfig
+from .agents import PydanticAIRegistry
+from .provenance import AsyncProvenanceGraph
+from .schemas import SCHEMA_REGISTRY
+from .observability import WorkflowObserver
 
 
 class DistributedHybridOrchestrator:

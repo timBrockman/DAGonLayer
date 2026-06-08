@@ -5,10 +5,10 @@ Unit tests for the orchestrator and components.
 import asyncio
 import pytest
 
-from config import WorkflowConfig
-from agents import PydanticAIRegistry
-from orchestrator import DistributedHybridOrchestrator
-from observability import WorkflowObserver
+from stateguard.config import WorkflowConfig
+from stateguard.agents import PydanticAIRegistry
+from stateguard.orchestrator import DistributedHybridOrchestrator
+from stateguard.observability import WorkflowObserver
 
 
 @pytest.fixture
