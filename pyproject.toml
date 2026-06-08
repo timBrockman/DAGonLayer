@@ -14,11 +14,6 @@ classifiers = [
   "Operating System :: OS Independent"
 ]
 keywords = ["workflow", "orchestration", "multi-agent", "pydantic", "llm"]
-
-[project.urls]
-"Homepage" = "https://github.com/timBrockman/dagonlayer"
-"Repository" = "https://github.com/timBrockman/dagonlayer"
-
 dependencies = [
   "python-dotenv >= 1.0.0",
   "pyyaml>=6.0",
@@ -26,6 +21,11 @@ dependencies = [
   "pydantic-ai>=0.1.0",
   "openai>=1.0.0"
 ]
+
+[project.urls]
+"Homepage" = "https://github.com/timBrockman/dagonlayer"
+"Repository" = "https://github.com/timBrockman/dagonlayer"
+
 [project.optional-dependencies]
 test = [
   "pytest",
