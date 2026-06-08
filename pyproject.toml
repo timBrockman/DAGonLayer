@@ -15,26 +15,27 @@ classifiers = [
 ]
 keywords = ["workflow", "orchestration", "multi-agent", "pydantic", "llm"]
 dependencies = [
-  "python-dotenv >= 1.0.0",
+  "python-dotenv>=1.0.0",
   "pyyaml>=6.0",
   "pydantic>=2.0",
   "pydantic-ai>=0.1.0",
   "openai>=1.0.0"
 ]
 
-[project.urls]
-"Homepage" = "https://github.com/timBrockman/dagonlayer"
-"Repository" = "https://github.com/timBrockman/dagonlayer"
-
-[project.optional-dependencies]
-test = [
-  "pytest",
-  "pytest-asyncio"
+urls=[
+  "Homepage=https://github.com/timBrockman/dagonlayer",
+  "Repository=https://github.com/timBrockman/dagonlayer"
 ]
-
+optional-dependencies=[
+  {test = [
+    "pytest",
+    "pytest-asyncio"
+  ]}
+]
+scripts=[
+  "dagonlayer=dagonlayer.main:run"
+]
 [build-system]
 requires = ["setuptools>=65.0.0", "wheel", "build"]
 build-backend = "setuptools.build_meta"
 
-[project.scripts]
-dagonlayer = "dagonlayer.main:run"
