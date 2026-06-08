@@ -1,0 +1,31 @@
+states:
+  TASK_CREATED:
+    agent: "researcher_agent"
+    next_event: "RESEARCH_COMPLETE"
+    max_retries: 3
+    context_mapping:
+      topic: "topic" # Maps input 'topic' to agent argument 'topic'
+
+  RESEARCH_COMPLETE:
+    routing_rules:
+      - condition: "confidence_score < 0.70"
+        target_state: "HUMAN_INTERVENTION"
+      - condition: "confidence_score >= 0.70"
+        target_state: "READY_FOR_WRITING"
+
+  HUMAN_INTERVENTION:
+    agent: "human_override_queue"
+    next_event: "READY_FOR_WRITING"
+    context_mapping:
+      key_findings: "flagged_findings"
+      confidence_score: "original_score"
+
+  READY_FOR_WRITING:
+    agent: "writer_agent"
+    next_event: "WRITING_COMPLETE"
+    max_retries: 2
+    context_mapping:
+      key_findings: "findings"
+
+  WRITING_COMPLETE:
+    agent: null  # Terminal state. Halts the execution engine.
